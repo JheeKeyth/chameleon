@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "594381644826",
+    "firebase_url": "https://chamelon-bccc9.firebaseio.com",
+    "project_id": "chamelon-bccc9",
+    "storage_bucket": "chamelon-bccc9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594381644826:android:860d21ffbaa3b2fd841da3",
+        "android_client_info": {
+          "package_name": "com.hackatanga.chameleon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594381644826-vv4dggt0kngm3jac81dnrhl3jbjh0h3k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hackatanga.chameleon",
+            "certificate_hash": "3a7f707000e3c78941c9c7b2e1ea5ae3897460a0"
+          }
+        },
+        {
+          "client_id": "594381644826-1f5f1688og17hqde3eerlohsgnolls3r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5XULd-87RyXPdsTDrLH7QCDfq94GZlAE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594381644826-1f5f1688og17hqde3eerlohsgnolls3r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
