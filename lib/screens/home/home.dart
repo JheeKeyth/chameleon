@@ -1,11 +1,11 @@
 //flutter imports
 import 'package:chameleon/screens/chat/chat.dart';
-import 'package:chameleon/screens/home/pages/juristical_page.dart';
-import 'package:chameleon/screens/home/pages/psychologist_page.dart';
+import 'package:chameleon/screens/emergency/emergency_page.dart';
+import 'package:chameleon/screens/home/widgets/slider_home.dart';
+import 'package:chameleon/screens/juristical/juristical.dart';
+import 'package:chameleon/screens/psychologist/psychologist.dart';
 import 'package:flutter/material.dart';
 //local imports
-import 'package:chameleon/screens/home/pages/emergency_page.dart';
-import 'package:chameleon/screens/home/pages/home_page.dart';
 import 'package:chameleon/screens/home/widgets/drawer_menu.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
           child: Column(
             children: [
               Expanded(
-                child: HomePage(),
+                child: SliderHome(),
               ),
               Expanded(
                 child: Container(
@@ -70,7 +70,6 @@ class _HomeState extends State<Home> {
                                 child: BottomNavigatorItem(
                                   icon: Icons.security,
                                   text: 'Emergência',
-                                  screen: EmergencyPage(),
                                 ),
                               ),
                               Container(
@@ -104,7 +103,6 @@ class _HomeState extends State<Home> {
                                 child: BottomNavigatorItem(
                                   icon: Icons.gavel,
                                   text: 'Jurídico',
-                                  screen: JuristicalPage(),
                                 ),
                               ),
                               Container(
@@ -125,7 +123,7 @@ class _HomeState extends State<Home> {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) {
-                                return PsycologistPage();
+                                return PsychologistPage();
                               },
                             ),
                           );
@@ -139,7 +137,6 @@ class _HomeState extends State<Home> {
                                 child: BottomNavigatorItem(
                                   icon: Icons.person,
                                   text: 'Psicólogo',
-                                  screen: PsycologistPage(),
                                 ),
                               ),
                               Container(
@@ -173,7 +170,6 @@ class _HomeState extends State<Home> {
                               BottomNavigatorItem(
                                 icon: Icons.group,
                                 text: 'Grupo',
-                                screen: Chat(),
                               ),
                             ],
                           ),
@@ -220,12 +216,10 @@ class BottomNavigatorItem extends StatefulWidget {
 
   final String text;
   final IconData icon;
-  final Widget screen;
 
   BottomNavigatorItem({
     this.text,
-    this.icon,
-    this.screen
+    this.icon
   });
 
   @override
@@ -243,15 +237,6 @@ class _BottomNavigatorItemState extends State<BottomNavigatorItem> {
             color: Colors.white,
             size: 32,
           ),
-          onPressed: (){
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) {
-                  return widget.screen;
-                },
-              ),
-            );
-          },
         ),
         Text(
           widget.text,

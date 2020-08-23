@@ -5,12 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 //packages imports
 import 'package:chameleon/screens/home/constants.dart';
 
-class HomePage extends StatefulWidget {
+class SliderHome extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _SliderHomeState createState() => _SliderHomeState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _SliderHomeState extends State<SliderHome> {
   PageController pageController;
 
   @override

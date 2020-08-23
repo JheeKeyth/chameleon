@@ -9,19 +9,19 @@ List<List<String>> contacts = [
   ["Pão de mel", "10:32", "2"],
 ];
 
-class JuristicalPage extends StatefulWidget {
+class PsycologistContacts extends StatefulWidget {
   @override
-  _JuristicalPageState createState() => _JuristicalPageState();
+  _PsycologistContactsState createState() => _PsycologistContactsState();
 }
 
-class _JuristicalPageState extends State<JuristicalPage> {
+class _PsycologistContactsState extends State<PsycologistContacts> {
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xFFCF81B0),
-          title: Text ('Conversas Advogado', style: GoogleFonts.oswald(
+          backgroundColor: Color(0xffc781cf),
+          title: Text ('Acolhimento Psicológico', style: GoogleFonts.oswald(
             textStyle: TextStyle(fontSize: 24, letterSpacing: 1.5),
           ),),
           centerTitle: true,
@@ -44,7 +44,6 @@ class _JuristicalPageState extends State<JuristicalPage> {
                     child: RaisedButton(
                       shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(10.0),
-
                       ),
                       onPressed: () {},
                       color: Color(0xFFE5E5E5),
@@ -56,13 +55,13 @@ class _JuristicalPageState extends State<JuristicalPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
-                              Icon(Icons.person, color: Color(0xFF9D5381), size: 48,),
+                              Icon(Icons.person, color: Color(0xFF95539E), size: 48,),
                               SizedBox(width: 6),
                               Text(
                                 contacts[index][0],
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: Color(0xFF9D5381),
+                                  color: Color(0xFF95539E),
                                   shadows: [
                                     Shadow(
                                       blurRadius: 5.0,
@@ -81,14 +80,14 @@ class _JuristicalPageState extends State<JuristicalPage> {
                                 contacts[index][1],
                                 style: TextStyle(
                                   fontSize: 12,
-                                  color: Color(0xFF9D5381),
+                                  color: Color(0xFF95539E),
                                 ),
                               ),
                               ClipOval(
                                 child: Container(
                                   width: 23,
                                   height: 23,
-                                  color: Color(0xFF9D5381),
+                                  color: Color(0xFF95539E),
                                   child: Text(
                                     contacts[index][2],
                                     textAlign: TextAlign.center,
