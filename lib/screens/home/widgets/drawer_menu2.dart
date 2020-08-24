@@ -7,12 +7,12 @@ import 'package:chameleon/screens/home/widgets/constants.dart';
 //imports packages
 import 'package:google_fonts/google_fonts.dart';
 
-class DrawerMenu extends StatefulWidget {
+class DrawerMenu2 extends StatefulWidget {
   @override
   _DrawerState createState() => _DrawerState();
 }
 
-class _DrawerState extends State<DrawerMenu> {
+class _DrawerState extends State<DrawerMenu2> {
 
   Texts texts = cameleon_texts(false);
 
@@ -52,7 +52,7 @@ class _DrawerState extends State<DrawerMenu> {
           padding: const EdgeInsets.only(top: 20, bottom: 20),
           child: ListTile(
             title: Text(
-              '180: Delegacia da Mulher\n\n190: Polícia Militar\n\n192: Samu',
+              'Camaleões fêmeas podem viver até 180 anos. Já os machos, chegam aos 190, quando em bons cuidados, chegam até 192 anos.',
               style: GoogleFonts.roboto(fontSize: 18),
             ),
           ),

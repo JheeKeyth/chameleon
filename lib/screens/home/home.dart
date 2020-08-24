@@ -1,4 +1,5 @@
 //flutter imports
+import 'package:chameleon/screens/chameleon/home_chameleon_page.dart';
 import 'package:chameleon/screens/chat/chat.dart';
 import 'package:chameleon/screens/emergency/emergency_page.dart';
 import 'package:chameleon/screens/home/widgets/slider_home.dart';
@@ -194,11 +195,19 @@ class _HomeState extends State<Home> {
           padding: EdgeInsets.only(bottom: 35),
           child: FloatingActionButton(
             backgroundColor: Color(0xFFFF6961),
-            child: Text(
-              'SOS',
-              style: GoogleFonts.oswald(
-                fontSize: 30,
-                color: Colors.white
+            child: InkWell(
+              onLongPress: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeChameleonPage()),
+                );
+              },
+              child: Text(
+                'SOS',
+                style: GoogleFonts.oswald(
+                    fontSize: 30,
+                    color: Colors.white
+                ),
               ),
             ),
             onPressed: (){
