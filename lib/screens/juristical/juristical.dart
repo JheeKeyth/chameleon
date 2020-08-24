@@ -1,3 +1,6 @@
+import 'package:chameleon/model/Lawer.dart';
+import 'package:chameleon/screens/chat/chat.dart';
+import 'package:chameleon/screens/juristical/Widgets/CardCustom.dart';
 import 'package:flutter/material.dart';
 
 class JuristicalPage extends StatefulWidget {
@@ -5,8 +8,41 @@ class JuristicalPage extends StatefulWidget {
   _JuristicalPageState createState() => _JuristicalPageState();
 }
 
+
 class _JuristicalPageState extends State<JuristicalPage> {
   String nomeCidade = "";
+  List list = new List <Lawer>();
+
+  addDumbData(){
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+    this.list.add(new Lawer(nome:'Carlos Sergio Macedo', oab:'123456'));
+  }
+
   var _cidades = [
     'Acre',
     'Alagoas',
@@ -39,6 +75,7 @@ class _JuristicalPageState extends State<JuristicalPage> {
   var _itemSelecionado = 'Acre';
   @override
   Widget build(BuildContext context) {
+    addDumbData();
     return Scaffold(
       appBar: AppBar(
         title: Text("Advogados"),
@@ -55,6 +92,7 @@ class _JuristicalPageState extends State<JuristicalPage> {
   }
 
   criaDropDownButton() {
+
     return Container(
       padding: EdgeInsets.all(20.0),
       width: 1000,
@@ -77,62 +115,23 @@ class _JuristicalPageState extends State<JuristicalPage> {
           Expanded(
               child: SizedBox(
                 width: 1000,
-                child: ListView(
-                  children: const <Widget>[
-                    Card(
-                      color: Color.fromRGBO(197, 136, 172, .7),
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage:
-                          AssetImage("./assets/images/user_icon.png"),
-                          backgroundColor: Color.fromRGBO(197, 136, 172, .7),
+                child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    itemCount: this.list.length,
+                    itemBuilder: (BuildContext context, index){
+                      return ListTile(
+                        title: CardCustom(
+                            text: this.list[index].nome,
+                            oab: this.list[index].oab,
+                            backgroundColor: Color(0xFFCF81B0),
+
+                            onClick: () {Navigator.push(context, MaterialPageRoute(builder: (context) => Chat()),
+                            );
+                            }
                         ),
-                        title: Text('Dra. Márcia',
-                            style: TextStyle(color: Colors.white)),
-                        subtitle: Text('OAB: 12345/MG',
-                            style: TextStyle(color: Colors.white)),
-                        trailing: Icon(Icons.message,
-                            color: Color.fromRGBO(253, 177, 224, .7)),
-                        isThreeLine: true,
-                      ),
-                    ),
-                    Card(
-                      color: Color.fromRGBO(197, 136, 172, .7),
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage:
-                          AssetImage("./assets/images/user_icon.png"),
-                          backgroundColor: Color.fromRGBO(197, 136, 172, .7),
-                        ),
-                        title: Text('Dra. Virgulina',
-                            style: TextStyle(color: Colors.white)),
-                        subtitle: Text('OAB: 4321/SP',
-                            style: TextStyle(color: Colors.white)),
-                        trailing: Icon(Icons.message,
-                            color: Color.fromRGBO(253, 177, 224, .7)),
-                        isThreeLine: true,
-                      ),
-                    ),
-                    Card(
-                      color: Color.fromRGBO(197, 136, 172, .7),
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage:
-                          AssetImage("./assets/images/user_icon.png"),
-                          backgroundColor: Color.fromRGBO(197, 136, 172, .7),
-                        ),
-                        title: Text(
-                          'Dr. Clark Kent',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        subtitle: Text('OAB: 4854/PR',
-                            style: TextStyle(color: Colors.white)),
-                        trailing: Icon(Icons.message,
-                            color: Color.fromRGBO(253, 177, 224, .7)),
-                        isThreeLine: true,
-                      ),
-                    ),
-                  ],
+                      );
+                    }
                 ),
               )),
         ],
