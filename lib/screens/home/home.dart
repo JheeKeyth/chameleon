@@ -8,6 +8,10 @@ import 'package:flutter/material.dart';
 //local imports
 import 'package:chameleon/screens/home/widgets/drawer_menu.dart';
 import 'package:google_fonts/google_fonts.dart';
+//package imports
+import 'package:geolocator/geolocator.dart';
+import 'package:flutter_open_whatsapp/flutter_open_whatsapp.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -17,6 +21,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  Position _currentPosition;
 
   @override
   Widget build(BuildContext context) {
@@ -197,7 +202,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             onPressed: (){
-              //TODO: Ação de emergência
+              _getCurrentLocation();
             },
           ),
         ),
@@ -207,6 +212,26 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+  }
+
+  _getCurrentLocation() {
+    final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
+
+    geolocator
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
+        .then((Position position) {
+      setState(() {
+        _currentPosition = position;
+      });
+      String texto = 'Erro ao pegar localização da vítima.';
+      if (_currentPosition != null) {
+        texto =
+        "LAT: ${_currentPosition.latitude}, LNG: ${_currentPosition.longitude}";
+      }
+      FlutterOpenWhatsapp.sendSingleMessage("5534991572772", texto);
+    }).catchError((e) {
+      print(e);
+    });
   }
 }
 
