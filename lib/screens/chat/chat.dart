@@ -53,7 +53,7 @@ class _ChatState extends State<Chat> {
   Future _getMessages() async {
     var firestore = FirebaseFirestore.instance;
     QuerySnapshot qn =
-    await firestore.collection("messages").get().then((value) {
+        await firestore.collection("messages").get().then((value) {
       print('SNAPSHOT:  ${value.docs[0].data()}');
     });
 
