@@ -1,3 +1,6 @@
+import 'package:chameleon/model/Psycologist.dart';
+import 'package:chameleon/screens/chat/chat.dart';
+import 'package:chameleon/screens/juristical/Widgets/CardCustom.dart';
 import 'package:flutter/material.dart';
 
 class PsychologistPage extends StatefulWidget {
@@ -7,6 +10,21 @@ class PsychologistPage extends StatefulWidget {
 
 class _PsychologistPageState extends State<PsychologistPage> {
   String nomeCidade = "";
+  List list = new List <Psycologist>();
+  addDumbData() {
+    this.list.add(new Psycologist(nome: 'Helio Hideo', crp: '123456'));
+    this.list.add(new Psycologist(nome: 'Helio Hideo', crp: '123456'));
+    this.list.add(new Psycologist(nome: 'Helio Hideo', crp: '123456'));
+    this.list.add(new Psycologist(nome: 'Helio Hideo', crp: '123456'));
+    this.list.add(new Psycologist(nome: 'Helio Hideo', crp: '123456'));
+    this.list.add(new Psycologist(nome: 'Helio Hideo', crp: '123456'));
+    this.list.add(new Psycologist(nome: 'Helio Hideo', crp: '123456'));
+    this.list.add(new Psycologist(nome: 'Helio Hideo', crp: '123456'));
+    this.list.add(new Psycologist(nome: 'Helio Hideo', crp: '123456'));
+    this.list.add(new Psycologist(nome: 'Helio Hideo', crp: '123456'));
+    this.list.add(new Psycologist(nome: 'Helio Hideo', crp: '123456'));
+    this.list.add(new Psycologist(nome: 'Helio Hideo', crp: '123456'));
+  }
   var _cidades = [
     'Acre',
     'Alagoas',
@@ -39,6 +57,7 @@ class _PsychologistPageState extends State<PsychologistPage> {
   var _itemSelecionado = 'Acre';
   @override
   Widget build(BuildContext context) {
+    addDumbData();
     return Scaffold(
       appBar: AppBar(
         title: Text("Psicólogos"),
@@ -77,62 +96,23 @@ class _PsychologistPageState extends State<PsychologistPage> {
           Expanded(
               child: SizedBox(
                 width: 1000,
-                child: ListView(
-                  children: const <Widget>[
-                    Card(
-                      color: Color.fromRGBO(192, 136, 199, .7),
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage:
-                          AssetImage("./assets/images/user_icon.png"),
-                          backgroundColor: Color.fromRGBO(192, 136, 199, .7),
+                child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    itemCount: this.list.length,
+                    itemBuilder: (BuildContext context, index){
+                      return ListTile(
+                        title: CardCustom(
+                            text: this.list[index].nome,
+                            oab: this.list[index].crp,
+                            backgroundColor: Color(0xFFC781CF),
+
+                            onClick: () {Navigator.push(context, MaterialPageRoute(builder: (context) => Chat()),
+                            );
+                            }
                         ),
-                        title: Text('Grosbilda Maria',
-                            style: TextStyle(color: Colors.white)),
-                        subtitle: Text('CRP: 12345/MG',
-                            style: TextStyle(color: Colors.white)),
-                        trailing: Icon(Icons.message,
-                            color: Color.fromRGBO(150, 82, 157, .7)),
-                        isThreeLine: true,
-                      ),
-                    ),
-                    Card(
-                      color: Color.fromRGBO(192, 136, 199, .7),
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage:
-                          AssetImage("./assets/images/user_icon.png"),
-                          backgroundColor: Color.fromRGBO(192, 136, 199, .7),
-                        ),
-                        title: Text('Josefina Martha',
-                            style: TextStyle(color: Colors.white)),
-                        subtitle: Text('CRP: 4321/SP',
-                            style: TextStyle(color: Colors.white)),
-                        trailing: Icon(Icons.message,
-                            color: Color.fromRGBO(150, 82, 157, .7)),
-                        isThreeLine: true,
-                      ),
-                    ),
-                    Card(
-                      color: Color.fromRGBO(192, 136, 199, .7),
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage:
-                          AssetImage("./assets/images/user_icon.png"),
-                          backgroundColor: Color.fromRGBO(192, 136, 199, .7),
-                        ),
-                        title: Text(
-                          'Carlitos Tevez',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        subtitle: Text('CRP: 4854/PR',
-                            style: TextStyle(color: Colors.white)),
-                        trailing: Icon(Icons.message,
-                            color: Color.fromRGBO(150, 82, 157, .7)),
-                        isThreeLine: true,
-                      ),
-                    ),
-                  ],
+                      );
+                    }
                 ),
               )),
         ],
